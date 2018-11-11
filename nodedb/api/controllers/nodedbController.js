@@ -112,24 +112,15 @@ var mongoose = require("mongoose"),
     Task = mongoose.model("Tasks"),
     Station = mongoose.model("RailData");
 
-exports.test = function(req, res) {
-    var newStat = new Station({
-        Date: 1491177600000,
-        TimeIn: 0.0,
-        Station: "BEDHAMPTON",
-        Headcode: "7Z75",
-        Trainperf: -3.0
-    });
-    var date = new Date(1491177600000 * 1000)
-    var hours = date.getHours()
-    var minutes = "0" + date.getMinutes()
-    var seconds = "0" + date.getSeconds()
-    var formattedTime = hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
-    console.log(formattedTime)
-    newStat.save(function(err, task) {
-        if (err) res.send(err);
-        res.json(task);
-    });
+exports.test = async function(req, res) {
+    await Station.create(test[0])
+            .then(function (docs) {response.json(docs);})
+            .catch(function (err) {console.log('Bad thing its a lot of bad and I wish and I wish no me')});
+
+    // newStat.save(function(err, task) {
+    //     if (err) res.send(err);
+    //     res.json(task);
+    // });
 };
 
 exports.list_all_tasks = function(req, res) {
