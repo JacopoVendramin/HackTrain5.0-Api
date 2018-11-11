@@ -3,6 +3,7 @@ var express = require("express"),
     port = process.env.PORT || 3000,
     mongoose = require("mongoose"),
     Task = require("./api/models/nodedbModel"), //created model loading here
+    Station = require("./api/models/railDataModel"), //created model loading here
     bodyParser = require("body-parser");
 
 // mongoose instance connection url connection

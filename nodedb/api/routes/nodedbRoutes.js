@@ -11,4 +11,7 @@ module.exports = function(app) {
         .get(ndb.read_a_task)
         .put(ndb.update_a_task)
         .delete(ndb.delete_a_task);
+
+    app.route("/test")
+        .get(ndb.test);
 };
