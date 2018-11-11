@@ -1,7 +1,7 @@
 "use strict";
-module.exports = function (app) {
+module.exports = function(app) {
     var ndb = require("../controllers/nodedbController");
-    const DashboardController = require("../controllers/DashboardController")
+    const DashboardController = require("../controllers/DashboardController");
 
     app.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
@@ -17,4 +17,7 @@ module.exports = function (app) {
         .get(ndb.seedDatabase)
 
 
+    app.route("/station/:stationName").get(ndb.getStationAndTotalAverage);
+
+    app.route("/seed").get(ndb.seedDatabase);
 };
