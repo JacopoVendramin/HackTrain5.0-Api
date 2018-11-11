@@ -14,7 +14,7 @@ var RailDataSchema = new Schema({
         required: "Date is missing"
     },
     TimeIn: {
-        type: Date,
+        type: Number,
         required: "TimeIn is required"
     },
     Station: {
